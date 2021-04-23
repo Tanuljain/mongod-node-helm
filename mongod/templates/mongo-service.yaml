@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    {{- include "mongoDeploy.labels" . | nindent 4 }}
+  name: {{ .Values.mongoSVC.name }}
+spec:
+  ports:
+  - port: {{ .Values.mongoSVC.port }}
+    targetPort: {{ .Values.mongoSVC.targetPort }}
+  selector:
+    {{- include "mongoDeploySpec.labels" . | nindent 4 }}
+  type: {{ .Values.mongoSVC.type }}
