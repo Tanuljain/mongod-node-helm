@@ -1,39 +1,24 @@
-# Default values for mongod.
+# Default values for nodejs.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
-pv:
-  name: "mo-data-pv"
-  sc: "generic"
-  volume: "500Mi"
-  path: "/var/lib/mongo"
-  access: "ReadWriteOnce"
-
-pvc:
-  name: "mo-data-pvc"
-  sc: "generic"
-  volume: "500Mi"
-  access: "ReadWriteOnce"
-
 image:
-  repository: mongo
+  repository: wshihadeh/node-easy-notes-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "4.2"
+  tag: "latest"
 
-deploySpec:
-  name: "mongodb-deployment"
-  containerName: mongodb
-  containerPort: 27017
-  volumeName: mo-data
+deploy:
+  name: easy-notes
 
-mongoSVC:
-  name: mongodb-service
+service:
+  name: easy-notes-service
   type: ClusterIP
-  port: 27017
-  targetPort: 27017
+  port: 8080
+  targetPort: 3000
+
 
 # imagePullSecrets: []
 # nameOverride: ""
