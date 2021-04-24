@@ -2,8 +2,8 @@
 MongoDB and NodeJS Setup through Helm Chart.
 
 
-To Compose Deployment, Run the following command.
+Clone this repository and run the following command to Compose Deployment.
 
 ```bash
-$ helm install mongod-node ./mongod-node-helm/
+helm install mongod-node ./mongod-node-helm/
 ```
