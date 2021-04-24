@@ -15,9 +15,11 @@ deploy:
 
 service:
   name: easy-notes-service
-  type: ClusterIP
+  # type: ClusterIP
+  type: NodePort
   port: 8080
   targetPort: 3000
+  nodePort: 32000
 
 
 # imagePullSecrets: []
