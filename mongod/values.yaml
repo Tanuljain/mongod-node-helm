@@ -29,7 +29,7 @@ deploySpec:
   containerPort: 27017
   volumeName: mo-data
 
-mongoSVC:
+service:
   name: mongodb-service
   type: ClusterIP
   port: 27017
